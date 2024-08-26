@@ -82,7 +82,7 @@ footer .btn{
     
 }
 
-@media (width < 1260px) {
+@media only screen and (max-width: 1060px) {
     footer{
         display: flex;
     }
