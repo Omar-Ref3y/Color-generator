@@ -2,11 +2,19 @@ const Container = document.querySelector(".container")
 const removeColor=document.querySelector(".remove")
 const addColor=document.querySelector(".add")
 const notice=document.querySelector(".notice")
-let colorNum = 3
+var colorNum=3
+if (!localStorage.hasOwnProperty("colorNum")) {
+    localStorage.setItem("colorNum",3)
+}
 
+for (let index = 0; index < colorNum; index++) {
+    const colorEl = document.createElement("div")
+    colorEl.classList.add("color-container")
+    Container.appendChild(colorEl)
+}
 document.addEventListener("keydown", function (event) {
     if (event.ctrlKey) {
-        if (colorNum >= 1 && colorNum < 6) {
+        if (colorNum >= 0 && colorNum < 6) {
             colorNum++;
             localStorage.setItem("colorNum",colorNum)
             generateEle()
@@ -28,7 +36,7 @@ document.addEventListener("keydown", function (event) {
 })
 addColor.addEventListener("click", function (event) {
 
-        if (colorNum >= 1 && colorNum < 6) {
+        if (colorNum >= 0 && colorNum < 6) {
             colorNum++;
             localStorage.setItem("colorNum",colorNum)
             generateEle()
@@ -48,12 +56,6 @@ function removeEle() {
     notice.style.display="none"
     const removeColor = document.querySelector(`.color-container:nth-child(${localStorage.getItem("colorNum")})`)
     Container.removeChild(removeColor)
-}
-colorNum=localStorage.getItem("colorNum")
-for (let index = 0; index < colorNum; index++) {
-    const colorEl = document.createElement("div")
-    colorEl.classList.add("color-container")
-    Container.appendChild(colorEl)
 }
 function generateEle() {
     notice.style.display="none"
