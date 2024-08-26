@@ -6,7 +6,7 @@ var colorNum=3
 if (!localStorage.hasOwnProperty("colorNum")) {
     localStorage.setItem("colorNum",3)
 }
-
+var colorNum=localStorage.getItem("colorNum")
 for (let index = 0; index < colorNum; index++) {
     const colorEl = document.createElement("div")
     colorEl.classList.add("color-container")
