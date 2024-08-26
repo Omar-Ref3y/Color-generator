@@ -82,7 +82,7 @@ footer .btn{
     
 }
 
-@media (width < 1000px) {
+@media (width < 1260px) {
     footer{
         display: flex;
     }
